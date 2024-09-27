@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KFC_Menu.ProfilePage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <Grid>
+            <!-- Red background on top -->
+            <BoxView Color="Red" HeightRequest="120" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+
+
+            <!-- Content -->
+            <StackLayout Padding="20" VerticalOptions="Start">
+                <!-- Page Title -->
+                <Label Text="My Profile"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Start"
+                   Grid.Row="0" />
+                <!-- User Info Frame -->
+                <Frame BackgroundColor="White" CornerRadius="10" 
+                   Padding="20" HasShadow="True" 
+                   Margin="0,10,0,20" VerticalOptions="Start">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="user_solid.svg" WidthRequest="50" HeightRequest="50" Margin="0,0,15,0" VerticalOptions="Center" />
+                        <StackLayout VerticalOptions="CenterAndExpand">
+                            <Label x:Name="nameLabel"  FontSize="Medium" FontAttributes="Bold"/>
+                            <Label x:Name="emailLabel" FontSize="Small" TextColor="Gray" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Menu Options -->
+                <StackLayout Spacing="15" Margin="0,20,0,0">
+                    <!-- Order History -->
+                    <Frame BackgroundColor="White" CornerRadius="10" Padding="15" HasShadow="True" >
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="bag_shopping_solid.svg" WidthRequest="24" HeightRequest="24" />
+                            <Label Text="Order History" FontSize="16" TextColor="Black" />
+                            <Image Source="angle_right_solid.svg" WidthRequest="24" HeightRequest="24" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+                    <!-- Payment Method -->
+                    <Frame BackgroundColor="White" CornerRadius="10" Padding="15" HasShadow="True" >
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="credit_card_regular.svg" WidthRequest="24" HeightRequest="24" />
+                            <Label Text="Payment Method" FontSize="16" TextColor="Black" />
+                            <Image Source="angle_right_solid.svg" WidthRequest="24" HeightRequest="24" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+                    <!-- My Address -->
+                    <Frame BackgroundColor="White" CornerRadius="10" Padding="15" HasShadow="True" >
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="location_dot_solid.svg" WidthRequest="24" HeightRequest="24" />
+                            <Label Text="My Address" FontSize="16" TextColor="Black" />
+                            <Image Source="angle_right_solid.svg" WidthRequest="24" HeightRequest="24" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+                    <!-- My Favorite -->
+                    <Frame BackgroundColor="White" CornerRadius="10" Padding="15" HasShadow="True" >
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="heart_regular.svg" WidthRequest="24" HeightRequest="24" />
+                            <Label Text="My Favorite" FontSize="16" TextColor="Black" />
+                            <Image Source="angle_right_solid.svg" WidthRequest="24" HeightRequest="24" HorizontalOptions="EndAndExpand"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="MyFavoritesTapped" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <Button Text="Sign Out"
+            TextColor="White"
+            FontAttributes="Bold"
+            BackgroundColor="Red"
+            CornerRadius="10"
+            VerticalOptions="EndAndExpand"
+            Margin="0,20,0,0"
+            Clicked="SignOutClicked" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

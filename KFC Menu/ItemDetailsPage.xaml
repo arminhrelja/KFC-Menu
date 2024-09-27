@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KFC_Menu.ItemDetailsPage">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *, *">
+            <!--Red Bacground with Back and Favorite Buttons -->
+            <StackLayout BackgroundColor="Red" Padding="20" HeightRequest="250" VerticalOptions="Start">
+                <Grid ColumnDefinitions="*, *" ColumnSpacing="250">
+                    <Frame WidthRequest="50" HeightRequest="50" CornerRadius="25" BackgroundColor="White"
+                           Padding="10" HorizontalOptions="Start" VerticalOptions="Start">
+                        <ImageButton Source="angle_left_solid.svg" Clicked="BackButtonClicked" WidthRequest="30" 
+                                     HeightRequest="30" HorizontalOptions="Start" VerticalOptions="Start"/>
+                    </Frame>
+                    <Frame Grid.Column="1" WidthRequest="50" HeightRequest="50" CornerRadius="25" BackgroundColor="White"
+                           Padding="10" HorizontalOptions="Start" VerticalOptions="Start">
+                        <ImageButton x:Name="FavoriteButton" WidthRequest="30" 
+                                     HeightRequest="30" HorizontalOptions="End" Clicked="FavoriteButtonClicked"/>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+            <!-- Item Details -->
+            <AbsoluteLayout Grid.Row="1">
+                <Image Source="{Binding Image}" HeightRequest="250" HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.5, 0.3, -1, -1"/>
+                <VerticalStackLayout Padding="10" Spacing="10" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0.9, 1, 0">
+                    <Label Text="{Binding Name}" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label Text="{Binding Description}" FontSize="18" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </AbsoluteLayout>
+            
+            <!-- Quantity and Add to Cart Buttons -->
+            <HorizontalStackLayout Grid.Row="2" Spacing="10" HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,20">
+                <Button Text="-" Grid.Column="0" Clicked="DecreaseQuantityClicked" WidthRequest="40" FontSize="15"
+                        HeightRequest="40" BackgroundColor="SlateGray" TextColor="White" CornerRadius="20"/>
+                <Label x:Name="ItemQuantity" Text="1" HorizontalOptions="Center" 
+                       VerticalOptions="Center" FontSize="18" Padding="10"/>
+                <Button Text="+" Clicked="IncreaseQuantityClicked" WidthRequest="40" FontSize="15" 
+                        HeightRequest="40" BackgroundColor="SlateGray" TextColor="White" CornerRadius="20"/>
+                <Button x:Name="AddToCartButton" Text="Add to cart" BackgroundColor="Red" 
+                        TextColor="White" HorizontalOptions="End" Clicked="AddToCartButtonClicked"
+                        WidthRequest="150" CornerRadius="20" FontAttributes="Bold" Margin="40,0,0,0"/>
+            </HorizontalStackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

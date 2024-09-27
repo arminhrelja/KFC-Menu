@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KFC_Menu.FavoritesPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="10">
+                <ImageButton Source="angle_left_solid.svg"
+                             WidthRequest="25"
+                             HeightRequest="25"
+                             Background="Transparent"
+                             Clicked="BackButtonClicked"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Start"/>
+                <Label Text="My Favorites" FontSize="Large" Padding="10" VerticalOptions="Center" 
+                       FontAttributes="Bold" Margin="90,0,0,0"/>
+            </StackLayout>
+            
+            <CollectionView x:Name="FavoritesCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="LightGray" Margin="5" CornerRadius="10"
+                               BackgroundColor="White" HeightRequest="120">
+                            <AbsoluteLayout>
+                                <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                                             AbsoluteLayout.LayoutFlags="All">
+                                    <Image Source="{Binding Image}" WidthRequest="80" 
+                                           HeightRequest="90" Aspect="AspectFill" 
+                                           VerticalOptions="CenterAndExpand"
+                                           HorizontalOptions="Start"/>
+                                    <StackLayout Padding="10,0,0,0" VerticalOptions="CenterAndExpand">
+                                        <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold" />
+                                        <Label Text="{Binding Category}" FontSize="16" TextColor="Gray" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <ImageButton Source="angle_right_solid.svg" 
+                                             Clicked="FavoriteItemClicked" HeightRequest="15" 
+                                             AbsoluteLayout.LayoutBounds="7.5, 0.5, AutoSize, AutoSize"
+                                             AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                            </AbsoluteLayout>
+                            
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

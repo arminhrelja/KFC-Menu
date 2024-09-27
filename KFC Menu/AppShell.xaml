@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="KFC_Menu.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:KFC_Menu"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False"
+    Shell.TabBarTitleColor="Red"
+    Shell.TabBarForegroundColor="Red">
+
+    
+    
+    <TabBar>
+        <Tab Title="Home" Icon="house_solid.svg">
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate local:MenuPage}"
+                          Route="MenuPage" Shell.NavBarIsVisible="False" />
+        </Tab>
+        <Tab Title="Order" Icon="bag_shopping_solid.svg">
+            <ShellContent Title="Order" ContentTemplate="{DataTemplate local:OrderPage}"
+                  Route="OrderPage" Shell.NavBarIsVisible="False" />
+        </Tab>
+        <Tab Title="Profile" Icon="user_solid.svg">
+            <ShellContent Title="Profile" ContentTemplate="{DataTemplate local:ProfilePage}"
+                  Route="ProfilePage" Shell.NavBarIsVisible="False" />
+        </Tab>
+    </TabBar>
+    
+</Shell>
